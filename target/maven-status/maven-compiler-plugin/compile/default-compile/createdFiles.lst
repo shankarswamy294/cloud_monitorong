@@ -1,0 +1,14 @@
+com\fabrikam\testAzureApp\Final_list.class
+com\fabrikam\dao\DataDaoImpl.class
+com\fabrikam\testAzureApp\Rest_call.class
+controller\MainController.class
+com\fabrikam\testAzureApp\App.class
+com\fabrikam\testAzureApp\Info.class
+com\fabrikam\dao\DataDao.class
+com\fabrikam\testAzureApp\Date_converter.class
+com\fabrikam\testAzureApp\Get_metric_info.class
+com\fabrikam\testAzureApp\Metric_defination.class
+com\fabrikam\testAzureApp\Monitoring.class
+com\fabrikam\testAzureApp\VmDetails.class
+com\fabrikam\testAzureApp\JsonConverter.class
+com\fabrikam\testAzureApp\monitoring_form_details.class

@@ -137,6 +137,8 @@ public int updateRow(Info info)
  
  
  
+ 
+ 
  @Transactional  
  public int insertRow_billing(Billing_model Billing_model) {  
   Session session = sessionFactory.openSession();  

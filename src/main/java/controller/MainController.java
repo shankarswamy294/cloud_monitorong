@@ -1,5 +1,6 @@
 package controller;
 import java.io.File;
+
 import com.fabrikam.testAzureApp.*;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -326,6 +327,50 @@ public class MainController {
 		 	usage_info=usage.UsageInfo();
 			return new ModelAndView("usage_list","usage_info",usage_info);
 		}*/
+	 
+	 @RequestMapping("login_form")
+		@ModelAttribute
+		public ModelAndView login_form(Model model) throws MalformedURLException, InterruptedException, ExecutionException{
+			//model.addAttribute("Billing_form_model",new Billing_form_model());
+			//model.put("monitor", new monitoring_form_details());
+			return new ModelAndView ("login_form","User", new User());
+		}
+	 
+	 
+	 @RequestMapping(value = "/login", method = RequestMethod.POST)
+	    public ModelAndView submit(@Valid @ModelAttribute("User")User User, 
+	      BindingResult result, ModelMap model) throws InterruptedException, ExecutionException, CloudException, IOException {
+	        model.addAttribute("user_name", User.getUser_name());
+	        model.addAttribute("password", User.getPassword());
+	        
+	   	 	//datbase query to get complete list of user name and gmail.id in data base
+	   	 	System.out.println(model);
+	   	 	return new ModelAndView("db");
+	    }
+	 
+	 @RequestMapping("signup_form")
+		@ModelAttribute
+		public ModelAndView signup_form(Model model) throws MalformedURLException, InterruptedException, ExecutionException{
+			//model.addAttribute("Billing_form_model",new Billing_form_model());
+			//model.put("monitor", new monitoring_form_details());
+			return new ModelAndView ("signup_form","User", new User());
+		}
+	 
+	 
+	 @RequestMapping(value = "/signup", method = RequestMethod.POST)
+	    public ModelAndView signup(@Valid @ModelAttribute("User")User User, 
+	      BindingResult result, ModelMap model) throws InterruptedException, ExecutionException, CloudException, IOException {
+		 	model.addAttribute("first_name",User.getFirst_name());
+		 	model.addAttribute("last_name",User.getLast_name());
+	        model.addAttribute("user_name", User.getUser_name());
+	        model.addAttribute("email_id",User.getEmail_id());
+	        model.addAttribute("password", User.getPassword());
+	        
+	        
+	   	 	//datbase query to get complete list of user name and gmail.id in data base
+	   	 	System.out.println(model);
+	   	 	return new ModelAndView("db");
+	    }
 }
 
 

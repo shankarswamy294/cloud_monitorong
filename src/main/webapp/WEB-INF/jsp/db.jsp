@@ -18,6 +18,7 @@ $(document).ready(function(){
 <title>Resource</title>
 <style>
 	.container{
+		color:white;
 		margin:200px;
 		margin-left:200px;
 	}
@@ -26,6 +27,9 @@ $(document).ready(function(){
 	}
 	h1{
 	margin-left:100px;
+	}
+	body{
+	background-image: url('https://www.xmple.com/wallpaper/single-one-colour-solid-color-plain-azure-1920x1080-c-236d8c-f-24.svg');
 	}
 
 </style>
@@ -36,7 +40,7 @@ $(document).ready(function(){
 	<button class="btn btn-success" id="load" onclick="location.href='push';"> Discover Resources</button>
 	<button class="btn btn-info" onclick="location.href='mainList';">Show Resources</button>
 	<button class="btn btn-primary" onclick="location.href='monitor_list';">Monitor Resources</button>
-	<button class="btn btn-primary" id="load" onclick="location.href='billing_form';">Billing/Cost</button>
+	<button class="btn btn-danger" id="load" onclick="location.href='billing_form';">Billing/Cost</button>
 	<div id="loader" style="display:none;">
 	<img alt="" style="background-repeat: no-repeat; height:70px; margin-left:100px; margin-top:20px;" src="${pageContext.request.contextPath}/resources/gif/loader01.gif" /><br/>
 	<p style=" margin-left:90px;">loading . . . .</p>

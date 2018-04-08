@@ -35,6 +35,7 @@ $(document).ready(function(){
 </style>
 </head>
 <body>
+<div><button style="float:right; margin-right:50px; margin-top:-100px;" class="btn btn-danger" onclick="location.href='/testAzureApp';">Logout</button></div>
 <div class="container">
 <h1>AZURE CLOUD</h1>
 	<button class="btn btn-success" id="load" onclick="location.href='push';"> Discover Resources</button>

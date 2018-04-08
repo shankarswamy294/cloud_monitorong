@@ -12,8 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.fabrikam.testAzureApp.Billing_model;
-import com.fabrikam.testAzureApp.Info;
+import com.fabrikam.testAzureApp.*;
 public class DataDaoImpl implements DataDao {  
   
  @Autowired  
@@ -52,6 +51,19 @@ public class DataDaoImpl implements DataDao {
  
  }  
   
+ 
+ public int insertUser(User user) {
+	 Session session = sessionFactory.openSession();  
+	  Transaction tx = session.beginTransaction();  
+	   session.saveOrUpdate(user);  
+	  tx.commit();  
+	  Serializable id = session.getIdentifier(user);  
+	  session.close();  
+	  return (Integer) id;
+	 
+ }
+ 
+ 
 // @Override  
  public List<Info> getList() {  
   Session session = sessionFactory.openSession();  
@@ -113,7 +125,7 @@ public int updateRow(Info info)
  }
  
  public ArrayList res_list(String name){
-	 ArrayList<Info> list=new ArrayList<Info>();
+	  ArrayList<Info> list=new ArrayList<Info>();
 	  Session session = sessionFactory.openSession();  
 	  Transaction tx = session.beginTransaction();  
 	  
@@ -151,7 +163,31 @@ public int updateRow(Info info)
  }
  
  
- 
- 
+ public List<User> getUserList()
+ {
+	// ArrayList<Info> list=new ArrayList<Info>();
+	  Session session = sessionFactory.openSession();  
+	  Transaction tx = session.beginTransaction();  
+	  
+	  String query = "SELECT first_name,last_name,user_name,email_id,password FROM User";
+	  Query result = session.createQuery(query);
+	  List<?> list1 = result.list();
+	  ArrayList<User> l_list=new ArrayList<User>();
+	 
+	  
+	  for(int i=0; i<list1.size(); i++) {
+		  User xy=new User();
+		   Object[] row = (Object[]) list1.get(i);
+		   xy.setFirst_name((String) row[0]);
+		   xy.setLast_name((String) row[1]);
+		   xy.setUser_name((String) row[2]);
+		   xy.setEmail_id((String) row[3]);
+		   xy.setPassword((String) row[4]);
+		   
+		   l_list.add(xy);
+		  }
+	 return l_list;
+	 
+ }
  
 }  

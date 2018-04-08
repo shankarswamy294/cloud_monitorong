@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.fabrikam.testAzureApp.Billing_model;
-import com.fabrikam.testAzureApp.Info;
+import com.fabrikam.testAzureApp.*;
 
 
 public interface DataDao {
@@ -27,4 +27,8 @@ public interface DataDao {
 	//billing----------
 	
 	public int insertRow_billing(Billing_model billing_model);
+	
+	public int insertUser(User user);
+	
+	public List<User> getUserList();
 }

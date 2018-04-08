@@ -344,8 +344,22 @@ public class MainController {
 	        model.addAttribute("password", User.getPassword());
 	        
 	   	 	//datbase query to get complete list of user name and gmail.id in data base
+	        List<User> user_list = data.getUserList();
+	        int flag = 0;
+	        for(User each:user_list) {
+	        	System.out.println(each.getUser_name());
+	        	System.out.println(model.get("user_name"));
+	        	if(each.getUser_name().equals(model.get("user_name")) && each.getPassword().equals(model.get("password"))) {
+	        		flag=1;
+	        		break;
+	        	}
+	        }
+	        if(flag==1) {
 	   	 	System.out.println(model);
 	   	 	return new ModelAndView("db");
+	        }else {
+	        	return new ModelAndView("login_form");
+	        }
 	    }
 	 
 	 @RequestMapping("signup_form")
@@ -366,6 +380,21 @@ public class MainController {
 	        model.addAttribute("email_id",User.getEmail_id());
 	        model.addAttribute("password", User.getPassword());
 	        
+	        User new_user = new User();
+	        String first_name = (String) model.get("first_name");
+	        String last_name = (String) model.get("last_name");
+	        String user_name = (String) model.get("user_name");
+	        String email_id = (String) model.get("email_id");
+	        String password = (String) model.get("password");
+	        
+	        new_user.setFirst_name(first_name);
+	        new_user.setLast_name(last_name);
+	        new_user.setUser_name(user_name);
+	        new_user.setEmail_id(email_id);
+	        new_user.setPassword(password);
+	        
+	        data.insertUser(new_user);
+	        System.out.println("SUCCESS");
 	        
 	   	 	//datbase query to get complete list of user name and gmail.id in data base
 	   	 	System.out.println(model);

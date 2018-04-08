@@ -1,11 +1,8 @@
 package com.fabrikam.testAzureApp;
 import javax.persistence.Column;  
-import javax.persistence.Entity;  
-import javax.persistence.GeneratedValue;  
+import javax.persistence.Entity;   
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import net.sf.json.JSON; 
 
 @Entity  
 @Table(name="user_details")

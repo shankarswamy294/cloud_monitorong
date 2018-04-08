@@ -41,9 +41,10 @@
  <bean id="sessionFactory"  
   class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
   <property name="dataSource" ref="dataSource" />  
-  <property name="annotatedClasses">    
+        <property name="annotatedClasses">    
             <list>    
-                <value>com.fabrikam.testAzureApp.Info</value>    
+                <value>com.fabrikam.testAzureApp.Info</value>  
+                <value>com.fabrikam.testAzureApp.User</value>  
             </list>    
         </property>   
   <property name="hibernateProperties">  
